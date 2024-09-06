@@ -7,23 +7,39 @@ pygame.mixer.init()
 
 # Load sound files
 sounds = {
-    'g': '196.wav',
-    'd': '293.wav',
-    'a': '440.wav',
-    'e': '659.wav'
+    'e': '659.25.wav',   # E (Open E)
+    'f': '698.46.wav',   # F
+    'f#': '739.99.wav',  # F#
+    'g': '783.99.wav',   # G
+    'g#': '830.61.wav',  # G#
+    'a': '880.00.wav',   # A
+    'a#': '932.33.wav',  # A#
+    'b': '987.77.wav',   # B
+    'c': '1046.50.wav',  # C
+    'c#': '1108.73.wav', # C#
+    'd': '1174.66.wav',  # D
+    'd#': '1244.51.wav'  # D#
 }
 
 # Set up the display in fullscreen mode
 info = pygame.display.Info()
 window = pygame.display.set_mode((info.current_w, info.current_h), pygame.FULLSCREEN)
-pygame.display.set_caption("Virtual Violin")
+pygame.display.set_caption("Virtual Jeffreylin (violin lol)")
 
 # Key to sound mapping
 key_map = {
-    pygame.K_1: 'e',  # 1 key to E sound
-    pygame.K_q: 'a',  # Q key to A sound
-    pygame.K_a: 'd',  # A key to D sound
-    pygame.K_z: 'g'   # Z key to G sound
+    pygame.K_1: 'e',    # 1 key to E (Open E) sound
+    pygame.K_2: 'f',    # 2 key to F sound
+    pygame.K_3: 'f#',   # 3 key to F# sound
+    pygame.K_4: 'g',    # 4 key to G sound
+    pygame.K_5: 'g#',   # 5 key to G# sound
+    pygame.K_6: 'a',    # 6 key to A sound
+    pygame.K_7: 'a#',   # 7 key to A# sound
+    pygame.K_8: 'b',    # 8 key to B sound
+    pygame.K_9: 'c',    # 9 key to C sound
+    pygame.K_0: 'c#',   # 0 key to C# sound
+    pygame.K_MINUS: 'd',    # - key to D sound
+    pygame.K_EQUALS: 'd#'   # = key to D# sound
 }
 
 # Function to play sound
