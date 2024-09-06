@@ -7,7 +7,7 @@ pygame.mixer.init()
 
 # Load sound files
 sounds = {
-    'e': '659.25.wav',   # E (Open E)
+    'e': '659.wav',   # E (Open E)
     'f': '698.46.wav',   # F
     'f#': '739.99.wav',  # F#
     'g': '783.99.wav',   # G
