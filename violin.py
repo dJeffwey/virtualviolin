@@ -1,26 +1,49 @@
-import sys
 import pygame
+import time
 
-# Initialize Pygame mixer
+# Initialize Pygame
+pygame.init()
 pygame.mixer.init()
 
-# Define note-to-file mapping
-note_files = {
-    'G': '196.wav',
-    'D': '293.wav',
-    'A': '440.wav',
-    'E': '659.wav'
+# Load sound files
+sounds = {
+    'g': '196.wav',
+    'd': '293.wav',
+    'a': '440.wav',
+    'e': '659.wav'
 }
 
-def play_sound(note):
-    if note in note_files:
-        sound_file = note_files[note]
-        sound = pygame.mixer.Sound(sound_file)
-        sound.play()
-    else:
-        print(f"Note {note} not found!")
+# Set up the display
+window = pygame.display.set_mode((400, 300))
+pygame.display.set_caption("Virtual Violin")
 
-if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        note = sys.argv[1]
-        play_sound(note)
+# Function to play sound
+def play_sound(sound_file):
+    pygame.mixer.music.load(sound_file)
+    pygame.mixer.music.play(-1)  # Loop the sound indefinitely
+
+# Function to stop sound
+def stop_sound():
+    pygame.mixer.music.stop()
+
+# Main loop
+running = True
+playing_sounds = {}  # Keep track of currently playing sounds
+
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN:
+            key = pygame.key.name(event.key)
+            if key in sounds:
+                if key not in playing_sounds:
+                    play_sound(sounds[key])
+                    playing_sounds[key] = sounds[key]
+        elif event.type == pygame.KEYUP:
+            key = pygame.key.name(event.key)
+            if key in playing_sounds:
+                stop_sound()
+                del playing_sounds[key]
+
+pygame.quit()
