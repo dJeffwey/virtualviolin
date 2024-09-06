@@ -121,7 +121,7 @@ key_map = {
     pygame.K_l: 'a#3',  # L key to A# sound
     pygame.K_SEMICOLON: 'b3', # ; key to B sound
     pygame.K_QUOTE: 'c4',    # ' key to C sound
-    pygame.K_ENTER: 'c#4',   # Enter key to C# sound
+    pygame.K_RETURN: 'c#4',   # Enter key to C# sound
     pygame.K_LSHIFT: 'd4',   # Left Shift key to D sound
     pygame.K_RSHIFT: 'd#4',  # Right Shift key to D# sound
     pygame.K_LCTRL: 'e4',    # Left Control key to E sound
