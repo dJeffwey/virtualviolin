@@ -13,8 +13,9 @@ sounds = {
     'e': '659.wav'
 }
 
-# Set up the display
-window = pygame.display.set_mode((400, 300))
+# Set up the display in fullscreen mode
+info = pygame.display.Info()
+window = pygame.display.set_mode((info.current_w, info.current_h), pygame.FULLSCREEN)
 pygame.display.set_caption("Virtual Violin")
 
 # Function to play sound
