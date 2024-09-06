@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Violin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .key {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            margin: 10px;
+            background-color: #ccc;
+            border: 1px solid #999;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .key:active {
+            background-color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Virtual Violin</h1>
+        <p>Hold down the keys G, D, A, E to play notes.</p>
+        <div class="key" id="G">G</div>
+        <div class="key" id="D">D</div>
+        <div class="key" id="A">A</div>
+        <div class="key" id="E">E</div>
+    </div>
+    <script>
+        const keys = document.querySelectorAll('.key');
+        keys.forEach(key => {
+            key.addEventListener('mousedown', () => {
+                fetch('/play', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        'note': key.id
+                    })
+                })
+                .then(response => response.text())
+                .then(data => console.log(data));
+            });
+        });
+    </script>
+</body>
+</html>
