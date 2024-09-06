@@ -44,7 +44,7 @@ sounds = {
     'e4': '659.25.wav',  # E
 
     # G string notes
-    'g3': '392.00.wav',  # G (Open G)
+    'g3': '196.wav',  # G (Open G)
     'a3': '440.00.wav',  # A
     'b3': '493.88.wav',  # B
     'c4': '523.25.wav',  # C
