@@ -9,50 +9,50 @@ pygame.mixer.init()
 sounds = {
     # E string notes
     'e': 'e.wav',    # Open E
-    'es': 'es.wav',   # Open E# or F
-    'e1': 'e1.wav',   # 1st finger on E string, F
-    'e1s': 'e1s.wav',  # 1st finger on E string, F#
-    'e2': 'e2.wav',   # 2nd finger on E string, G
-    'e2s': 'e2s.wav',  # 2nd finger on E string, G#
-    'e3': 'e3.wav',   # 3rd finger on E string, A
-    'e3s': 'e3s.wav',  # 3rd finger on E string, A#
-    'e4': 'e4.wav',   # 4th finger on E string, B
-    'e4s': 'e4s.wav', # 4th finger on E string, C
+    'es': 'es.wav',  # Open E# or F
+    'e1': 'e1.wav',  # 1st finger on E string, F
+    'e1s': 'e1s.wav',# 1st finger on E string, F#
+    'e2': 'e2.wav',  # 2nd finger on E string, G
+    'e2s': 'e2s.wav',# 2nd finger on E string, G#
+    'e3': 'e3.wav',  # 3rd finger on E string, A
+    'e3s': 'e3s.wav',# 3rd finger on E string, A#
+    'e4': 'e4.wav',  # 4th finger on E string, B
+    'e4s': 'e4s.wav',# 4th finger on E string, C
 
     # A string notes
     'a': 'a.wav',    # Open A
-    'as': 'as.wav',   # Open A# or Bb
-    'a1': 'a1.wav',   # 1st finger on A string, A#
-    'a1s': 'a1s.wav',  # 1st finger on A string, B
-    'a2': 'a2.wav',   # 2nd finger on A string, B
-    'a2s': 'a2s.wav',  # 2nd finger on A string, C
-    'a3': 'a3.wav',   # 3rd finger on A string, C
-    'a3s': 'a3s.wav',  # 3rd finger on A string, C#
-    'a4': 'a4.wav',   # 4th finger on A string, D
-    'a4s': 'a4s.wav',  # 4th finger on A string, D#
+    'as': 'as.wav',  # Open A# or Bb
+    'a1': 'a1.wav',  # 1st finger on A string, A#
+    'a1s': 'a1s.wav',# 1st finger on A string, B
+    'a2': 'a2.wav',  # 2nd finger on A string, B
+    'a2s': 'a2s.wav',# 2nd finger on A string, C
+    'a3': 'a3.wav',  # 3rd finger on A string, C
+    'a3s': 'a3s.wav',# 3rd finger on A string, C#
+    'a4': 'a4.wav',  # 4th finger on A string, D
+    'a4s': 'a4s.wav',# 4th finger on A string, D#
 
     # D string notes
     'd': 'd.wav',    # Open D
-    'ds': 'ds.wav',   # Open D# or Eb
-    'd1': 'd1.wav',   # 1st finger on D string, D#
-    'd1s': 'd1s.wav',  # 1st finger on D string, E
-    'd2': 'd2.wav',   # 2nd finger on D string, E
-    'd2s': 'd2s.wav',  # 2nd finger on D string, F#
-    'd3': 'd3.wav',   # 3rd finger on D string, F#
-    'd3s': 'd3s.wav',  # 3rd finger on D string, G
-    'd4': 'd4.wav',   # 4th finger on D string, G
-    'd4s': 'd4s.wav',  # 4th finger on D string, G#
+    'ds': 'ds.wav',  # Open D# or Eb
+    'd1': 'd1.wav',  # 1st finger on D string, D#
+    'd1s': 'd1s.wav',# 1st finger on D string, E
+    'd2': 'd2.wav',  # 2nd finger on D string, E
+    'd2s': 'd2s.wav',# 2nd finger on D string, F#
+    'd3': 'd3.wav',  # 3rd finger on D string, F#
+    'd3s': 'd3s.wav',# 3rd finger on D string, G
+    'd4': 'd4.wav',  # 4th finger on D string, G
+    'd4s': 'd4s.wav',# 4th finger on D string, G#
 
     # G string notes
     'g': 'g.wav',    # Open G
-    'gs': 'gs.wav',   # Open G# or Ab
-    'g1': 'g1.wav',   # 1st finger on G string, G#
-    'g1s': 'g1s.wav',  # 1st finger on G string, A
-    'g2': 'g2.wav',   # 2nd finger on G string, A
-    'g2s': 'g2s.wav',  # 2nd finger on G string, A#
-    'g3': 'g3.wav',   # 3rd finger on G string, A#
-    'g3s': 'g3s.wav',  # 3rd finger on G string, B
-    'g4': 'g4.wav',   # 4th finger on G string, B
+    'gs': 'gs.wav',  # Open G# or Ab
+    'g1': 'g1.wav',  # 1st finger on G string, G#
+    'g1s': 'g1s.wav',# 1st finger on G string, A
+    'g2': 'g2.wav',  # 2nd finger on G string, A
+    'g2s': 'g2s.wav',# 2nd finger on G string, A#
+    'g3': 'g3.wav',  # 3rd finger on G string, A#
+    'g3s': 'g3s.wav',# 3rd finger on G string, B
+    'g4': 'g4.wav',  # 4th finger on G string, B
 }
 
 # Set up the display in fullscreen mode
@@ -96,7 +96,7 @@ key_map = {
     pygame.K_j: 'd3',   # J key to 3rd finger on D string, F#
     pygame.K_k: 'd3s',  # K key to 3rd finger on D string, G
     pygame.K_l: 'd4',   # L key to 4th finger on D string, G
-    pygame.K_colon: 'd4s',  # : key to 4th finger on D string, G#
+    pygame.K_semicolon: 'd4s',  # ; key to 4th finger on D string, G#
 
     # G string notes
     pygame.K_z: 'g',    # Z key to Open G
@@ -126,3 +126,19 @@ playing_sounds = {}  # Keep track of currently playing sounds
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN:
+            if event.key in key_map:
+                key = key_map[event.key]
+                if key not in playing_sounds:
+                    sound_file = sounds[key]
+                    play_sound(sound_file)
+                    playing_sounds[key] = sound_file
+        elif event.type == pygame.KEYUP:
+            if event.key in key_map:
+                key = key_map[event.key]
+                if key in playing_sounds:
+                    stop_sound()
+                    del playing_sounds[key]
+
+pygame.quit()
