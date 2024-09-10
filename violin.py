@@ -96,7 +96,7 @@ key_map = {
     pygame.K_j: 'd3',   # J key to 3rd finger on D string, F#
     pygame.K_k: 'd3s',  # K key to 3rd finger on D string, G
     pygame.K_l: 'd4',   # L key to 4th finger on D string, G
-    pygame.K_semicolon: 'd4s',  # ; key to 4th finger on D string, G#
+    pygame.K_SEMICOLON: 'd4s',  # ; key to 4th finger on D string, G#
 
     # G string notes
     pygame.K_z: 'g',    # Z key to Open G
@@ -106,9 +106,10 @@ key_map = {
     pygame.K_b: 'g2',   # B key to 2nd finger on G string, A
     pygame.K_n: 'g2s',  # N key to 2nd finger on G string, A#
     pygame.K_m: 'g3',   # M key to 3rd finger on G string, A#
-    pygame.K_comma: 'g3s',  # , key to 3rd finger on G string, B
-    pygame.K_period: 'g4',   # . key to 4th finger on G string, B
+    pygame.K_COMMA: 'g3s',  # , key to 3rd finger on G string, B
+    pygame.K_PERIOD: 'g4',   # . key to 4th finger on G string, B
 }
+
 
 # Function to play sound
 def play_sound(sound_file):
