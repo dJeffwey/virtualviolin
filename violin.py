@@ -96,7 +96,7 @@ key_map = {
     pygame.K_j: 'd3',   # J key to 3rd finger on D string, F#
     pygame.K_k: 'd3s',  # K key to 3rd finger on D string, G
     pygame.K_l: 'd4',   # L key to 4th finger on D string, G
-    pygame.K_semicolon: 'd4s',  # ; key to 4th finger on D string, G#
+    pygame.K_colon: 'd4s',  # : key to 4th finger on D string, G#
 
     # G string notes
     pygame.K_z: 'g',    # Z key to Open G
@@ -112,7 +112,7 @@ key_map = {
 
 # Function to play sound
 def play_sound(sound_file):
-    pygame.mixer.music.load(os.path.join('sounds', sound_file))
+    pygame.mixer.music.load(sound_file)
     pygame.mixer.music.play(-1)  # Loop the sound indefinitely
 
 # Function to stop sound
@@ -126,20 +126,3 @@ playing_sounds = {}  # Keep track of currently playing sounds
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
-        elif event.type == pygame.KEYDOWN:
-            if event.key in key_map:
-                key = key_map[event.key]
-                if key in sounds:
-                    if key not in playing_sounds:
-                        play_sound(sounds[key])
-                        playing_sounds[key] = sounds[key]
-        elif event.type == pygame.KEYUP:
-            if event.key in key_map:
-                key = key_map[event.key]
-                if key in playing_sounds:
-                    stop_sound()
-                    del playing_sounds[key]
-
-# Quit Pygame
-pygame.quit()
