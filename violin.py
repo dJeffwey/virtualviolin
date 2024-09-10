@@ -8,51 +8,51 @@ pygame.mixer.init()
 # Load sound files
 sounds = {
     # E string notes
-    'e': '659.wav',    # Open E
-    'es': '698.wav',   # Open E# or F
-    'e1': '698.wav',   # 1st finger on E string, F
-    'e1s': '740.wav',  # 1st finger on E string, F#
-    'e2': '784.wav',   # 2nd finger on E string, G
-    'e2s': '831.wav',  # 2nd finger on E string, G#
-    'e3': '880.wav',   # 3rd finger on E string, A
-    'e3s': '932.wav',  # 3rd finger on E string, A#
-    'e4': '988.wav',   # 4th finger on E string, B
-    'e4s': '1047.wav', # 4th finger on E string, C
+    'e': 'e.wav',    # Open E
+    'es': 'es.wav',   # Open E# or F
+    'e1': 'e1.wav',   # 1st finger on E string, F
+    'e1s': 'e1s.wav',  # 1st finger on E string, F#
+    'e2': 'e2.wav',   # 2nd finger on E string, G
+    'e2s': 'e2s.wav',  # 2nd finger on E string, G#
+    'e3': 'e3.wav',   # 3rd finger on E string, A
+    'e3s': 'e3s.wav',  # 3rd finger on E string, A#
+    'e4': 'e4.wav',   # 4th finger on E string, B
+    'e4s': 'e4s.wav', # 4th finger on E string, C
 
     # A string notes
-    'a': '440.wav',    # Open A
-    'as': '466.wav',   # Open A# or Bb
-    'a1': '466.wav',   # 1st finger on A string, A#
-    'a1s': '494.wav',  # 1st finger on A string, B
-    'a2': '494.wav',   # 2nd finger on A string, B
-    'a2s': '523.wav',  # 2nd finger on A string, C
-    'a3': '523.wav',   # 3rd finger on A string, C
-    'a3s': '554.wav',  # 3rd finger on A string, C#
-    'a4': '587.wav',   # 4th finger on A string, D
-    'a4s': '622.wav',  # 4th finger on A string, D#
+    'a': 'a.wav',    # Open A
+    'as': 'as.wav',   # Open A# or Bb
+    'a1': 'a1.wav',   # 1st finger on A string, A#
+    'a1s': 'a1s.wav',  # 1st finger on A string, B
+    'a2': 'a2.wav',   # 2nd finger on A string, B
+    'a2s': 'a2s.wav',  # 2nd finger on A string, C
+    'a3': 'a3.wav',   # 3rd finger on A string, C
+    'a3s': 'a3s.wav',  # 3rd finger on A string, C#
+    'a4': 'a4.wav',   # 4th finger on A string, D
+    'a4s': 'a4s.wav',  # 4th finger on A string, D#
 
     # D string notes
-    'd': '294.wav',    # Open D
-    'ds': '311.wav',   # Open D# or Eb
-    'd1': '311.wav',   # 1st finger on D string, D#
-    'd1s': '330.wav',  # 1st finger on D string, E
-    'd2': '330.wav',   # 2nd finger on D string, E
-    'd2s': '370.wav',  # 2nd finger on D string, F#
-    'd3': '370.wav',   # 3rd finger on D string, F#
-    'd3s': '392.wav',  # 3rd finger on D string, G
-    'd4': '392.wav',   # 4th finger on D string, G
-    'd4s': '415.wav',  # 4th finger on D string, G#
+    'd': 'd.wav',    # Open D
+    'ds': 'ds.wav',   # Open D# or Eb
+    'd1': 'd1.wav',   # 1st finger on D string, D#
+    'd1s': 'd1s.wav',  # 1st finger on D string, E
+    'd2': 'd2.wav',   # 2nd finger on D string, E
+    'd2s': 'd2s.wav',  # 2nd finger on D string, F#
+    'd3': 'd3.wav',   # 3rd finger on D string, F#
+    'd3s': 'd3s.wav',  # 3rd finger on D string, G
+    'd4': 'd4.wav',   # 4th finger on D string, G
+    'd4s': 'd4s.wav',  # 4th finger on D string, G#
 
     # G string notes
-    'g': '196.wav',    # Open G
-    'gs': '208.wav',   # Open G# or Ab
-    'g1': '208.wav',   # 1st finger on G string, G#
-    'g1s': '220.wav',  # 1st finger on G string, A
-    'g2': '220.wav',   # 2nd finger on G string, A
-    'g2s': '233.wav',  # 2nd finger on G string, A#
-    'g3': '233.wav',   # 3rd finger on G string, A#
-    'g3s': '247.wav',  # 3rd finger on G string, B
-    'g4': '247.wav',   # 4th finger on G string, B
+    'g': 'g.wav',    # Open G
+    'gs': 'gs.wav',   # Open G# or Ab
+    'g1': 'g1.wav',   # 1st finger on G string, G#
+    'g1s': 'g1s.wav',  # 1st finger on G string, A
+    'g2': 'g2.wav',   # 2nd finger on G string, A
+    'g2s': 'g2s.wav',  # 2nd finger on G string, A#
+    'g3': 'g3.wav',   # 3rd finger on G string, A#
+    'g3s': 'g3s.wav',  # 3rd finger on G string, B
+    'g4': 'g4.wav',   # 4th finger on G string, B
 }
 
 # Set up the display in fullscreen mode
@@ -112,7 +112,7 @@ key_map = {
 
 # Function to play sound
 def play_sound(sound_file):
-    pygame.mixer.music.load(sound_file)
+    pygame.mixer.music.load(os.path.join('sounds', sound_file))
     pygame.mixer.music.play(-1)  # Loop the sound indefinitely
 
 # Function to stop sound
