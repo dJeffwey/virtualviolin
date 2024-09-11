@@ -6,9 +6,13 @@ import time
 pygame.init()
 pygame.mixer.init()
 
+# Create a window for Pygame to work properly
+screen = pygame.display.set_mode((300, 300))
+pygame.display.set_caption("Virtual Violin")
+
 # Define sampling rate and duration
 SAMPLE_RATE = 44100  # Hertz
-DURATION = 10  # seconds
+DURATION = 5  # seconds
 
 # Frequency of open E string
 E_FREQ = 659.26
@@ -58,6 +62,7 @@ while running:
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LCTRL] or keys[pygame.K_RCTRL]:  # Left or right CTRL
         if not pygame.mixer.get_busy():
+            print("Playing Violin E sound...")
             play_violin_e()
     else:
         stop_violin_e()
