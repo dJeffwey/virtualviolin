@@ -17,17 +17,26 @@ DURATION = 5  # seconds
 # Frequency of open E string
 E_FREQ = 659.26
 
-# Generate a violin-like sound by adding harmonics
+# Generate a violin-like sound with vibrato
 def generate_violin_sound(frequency, duration, sample_rate):
     t = np.linspace(0, duration, int(sample_rate * duration), endpoint=False)
     
-    # Create a fundamental sine wave
-    sound_wave = 0.6 * np.sin(2 * np.pi * frequency * t)
+    # Vibrato parameters
+    vibrato_frequency = 5.0  # Hz
+    vibrato_depth = 0.005    # Depth of vibrato effect
+
+    # Create a fundamental sine wave with vibrato
+    vibrato = vibrato_depth * np.sin(2 * np.pi * vibrato_frequency * t)
+    sound_wave = 0.6 * np.sin(2 * np.pi * (frequency + vibrato) * t)
     
     # Add harmonics to approximate violin sound
-    sound_wave += 0.3 * np.sin(2 * np.pi * 2 * frequency * t)  # Second harmonic
-    sound_wave += 0.15 * np.sin(2 * np.pi * 3 * frequency * t)  # Third harmonic
-    sound_wave += 0.1 * np.sin(2 * np.pi * 4 * frequency * t)   # Fourth harmonic
+    sound_wave += 0.3 * np.sin(2 * np.pi * (2 * frequency + vibrato) * t)  # Second harmonic
+    sound_wave += 0.15 * np.sin(2 * np.pi * (3 * frequency + vibrato) * t)  # Third harmonic
+    sound_wave += 0.1 * np.sin(2 * np.pi * (4 * frequency + vibrato) * t)   # Fourth harmonic
+    
+    # Apply an envelope to simulate violin bowing
+    envelope = np.sin(np.pi * t / duration)
+    sound_wave *= envelope
     
     # Ensure sound is in the range [-1, 1]
     sound_wave = np.clip(sound_wave, -1, 1)
