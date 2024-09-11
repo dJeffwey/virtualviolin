@@ -1,5 +1,4 @@
 import pygame
-import time
 
 # Initialize Pygame
 pygame.init()
@@ -17,10 +16,12 @@ pygame.display.set_caption("Virtual Violin")
 def play_sound(sound_file):
     pygame.mixer.music.load(sound_file)
     pygame.mixer.music.play(-1)  # Loop the sound indefinitely
+    print("Playing sound...")
 
 # Function to stop sound
 def stop_sound():
     pygame.mixer.music.stop()
+    print("Sound stopped.")
 
 # Main loop
 running = True
@@ -35,11 +36,13 @@ while running:
                 if not sound_playing:
                     play_sound(violin_sound)
                     sound_playing = True
+                    print("CTRL pressed.")
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LCTRL:  # Check if Left Control is released
                 if sound_playing:
                     stop_sound()
                     sound_playing = False
+                    print("CTRL released.")
 
 # Quit Pygame
 pygame.quit()
