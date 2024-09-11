@@ -17,7 +17,7 @@ DURATION = 5  # seconds
 # Frequency of open E string
 E_FREQ = 659.26
 
-# Generate a violin-like sound with vibrato
+# Generate a more realistic violin-like sound
 def generate_violin_sound(frequency, duration, sample_rate):
     t = np.linspace(0, duration, int(sample_rate * duration), endpoint=False)
     
@@ -25,17 +25,30 @@ def generate_violin_sound(frequency, duration, sample_rate):
     vibrato_frequency = 5.0  # Hz
     vibrato_depth = 0.005    # Depth of vibrato effect
 
-    # Create a fundamental sine wave with vibrato
+    # Envelope parameters
+    attack_time = 0.1  # seconds
+    decay_time = 0.2   # seconds
+    sustain_level = 0.6
+    release_time = 0.3 # seconds
+
+    # Generate the fundamental frequency with vibrato
     vibrato = vibrato_depth * np.sin(2 * np.pi * vibrato_frequency * t)
-    sound_wave = 0.6 * np.sin(2 * np.pi * (frequency + vibrato) * t)
+    fundamental_wave = np.sin(2 * np.pi * (frequency + vibrato) * t)
     
-    # Add harmonics to approximate violin sound
-    sound_wave += 0.3 * np.sin(2 * np.pi * (2 * frequency + vibrato) * t)  # Second harmonic
-    sound_wave += 0.15 * np.sin(2 * np.pi * (3 * frequency + vibrato) * t)  # Third harmonic
-    sound_wave += 0.1 * np.sin(2 * np.pi * (4 * frequency + vibrato) * t)   # Fourth harmonic
+    # Add harmonics for a richer sound
+    harmonic1 = 0.5 * np.sin(2 * np.pi * (2 * frequency + vibrato) * t)  # Second harmonic
+    harmonic2 = 0.3 * np.sin(2 * np.pi * (3 * frequency + vibrato) * t)  # Third harmonic
+    harmonic3 = 0.2 * np.sin(2 * np.pi * (4 * frequency + vibrato) * t)  # Fourth harmonic
     
-    # Apply an envelope to simulate violin bowing
-    envelope = np.sin(np.pi * t / duration)
+    # Combine harmonics
+    sound_wave = fundamental_wave + harmonic1 + harmonic2 + harmonic3
+    
+    # Apply ADSR (Attack, Decay, Sustain, Release) envelope
+    attack = np.clip(t / attack_time, 0, 1)
+    decay = np.clip((duration - t) / decay_time, 0, 1)
+    sustain = np.clip((t - (duration - release_time)) / release_time, 0, 1)
+    envelope = np.minimum(attack, decay) * sustain_level + sustain * (1 - sustain_level)
+    
     sound_wave *= envelope
     
     # Ensure sound is in the range [-1, 1]
